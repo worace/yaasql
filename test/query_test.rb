@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'yaassql/reader'
+require 'yaassql/query'
 require 'pg'
 
 class YaassqlTest < Minitest::Test

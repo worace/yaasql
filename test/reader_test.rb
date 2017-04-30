@@ -1,7 +1,7 @@
 require 'test_helper'
 require "yaassql/reader"
 
-class YaassqlTest < Minitest::Test
+class ReaderTest < Minitest::Test
   attr_reader :r
   def sample_query
     <<~QUERY
@@ -55,5 +55,12 @@ class YaassqlTest < Minitest::Test
     assert_equal([:id, :name], r.arguments("where id = :id and name = :name;"))
     assert_equal([:id], r.arguments("where id=:id;"))
     assert_equal([], r.arguments("select * from examples;"))
+  end
+
+  def test_reading_queries_from_file
+    queries = r.from_file("./test/queries.sql")
+    assert_equal 3, queries.count
+    assert_equal [:count_examples, :get_example_by_id, :get_examples_by_id], queries.map(&:name)
+    assert_equal [[], [:id], [:ids]], queries.map(&:arguments)
   end
 end

@@ -4,6 +4,14 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Checklist
+
+* [ ] Reading multiple queries from single string (blank-line separated?)
+* [ ] Module for including into a namespace
+* [ ] Metaprogramming for defining query methods
+* [ ] Define queries from a file
+* [ ] `where IN (...)` queries
+
 ## Installation
 
 Add this line to your application's Gemfile:

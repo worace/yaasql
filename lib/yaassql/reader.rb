@@ -1,26 +1,4 @@
 module Yaassql
-  class Query
-    attr_reader :name, :body, :arguments
-
-    def self.from_string(query)
-      new(Reader.new.components(query))
-    end
-
-    def initialize(components)
-      [:body, :name, :arguments].each do |param|
-        raise ArgumentError.new("Query missing component #{param}") unless components[param]
-      end
-      @body = components[:body]
-      @name = components[:name]
-      @arguments = components[:arguments]
-    end
-
-    def execute(connection, args = {})
-      params = self.arguments.map { |a| args.fetch(a) }
-      connection.exec_params(body, params).to_a
-    end
-  end
-
   class Reader
     HEADER_PATTERN = /^-- name: (.*)\n/
     def name(query)
@@ -53,6 +31,11 @@ module Yaassql
       body = raw_body(query)
       arguments = arguments(body)
       {name: name, body: with_sql_args(body, arguments), arguments: arguments}
+    end
+
+    def from_file(path)
+      query_strings = File.read(path).split("\n\n")
+      query_strings.map { |q| Query.new(components(q)) }
     end
   end
 end
