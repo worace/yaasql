@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Horace Williams"]
   spec.email         = ["horace.d.williams@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Simple SQL query-templating for ruby, a la https://github.com/krisajenkins/yesql."
+  spec.description   = "Write db queries directly in SQL - no ORM or query-builder required. Include some conveniences around naming queries and providing arguments."
+  spec.homepage      = "https://github.com/worace/yaassql"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "pg", "~> 0.18"
 end
