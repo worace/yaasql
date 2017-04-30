@@ -1,24 +1,30 @@
 module Yaassql
   class Reader
-    def query_name(query)
-      pattern = /^-- name: (.*)\n/
-      match = query.match(pattern)
+    HEADER_PATTERN = /^-- name: (.*)\n/
+    def name(query)
+      match = query.match(HEADER_PATTERN)
       if match
         match[1].to_sym
       else
-        raise ArgumentError.new("Must provide a header comment with query name") unless query_name
+        raise ArgumentError.new("Must provide a header comment with query name")
       end
     end
 
+    def body(query)
+      query.split("\n").map(&:strip).reject do |line|
+        line.start_with?('--')
+      end.join('\n')
+    end
+
+    def arguments(body)
+      body.scan(/:(\w+);?/).flatten.map(&:to_sym)
+    end
+
     def query_components(query)
-      name = query_name(query)
-
-      body = query.sub(header, '')
-
-      arguments = query.scan(/ :(.+)?;/).flatten.map(&:to_sym)
-      {name: query_name,
-       body: insert_pg_variables(body, arguments),
-       arguments: arguments}
+      name = name(query)
+      body = body(query)
+      arguments = arguments(body)
+      {name: name, body: body, arguments: arguments}
     end
   end
 end
