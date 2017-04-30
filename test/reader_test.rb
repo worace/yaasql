@@ -1,4 +1,3 @@
-
 require 'test_helper'
 require "yaassql/reader"
 
@@ -7,7 +6,6 @@ class YaassqlTest < Minitest::Test
   def sample_query
     <<~QUERY
       -- name: count_examples
-      -- Find the users with the given ID(s).
       SELECT COUNT(*) FROM examples;
     QUERY
   end
@@ -15,8 +13,15 @@ class YaassqlTest < Minitest::Test
   def sample_with_whitespace
     <<~QUERY
       -- name: count_examples
-        -- Find the users with the given ID(s).
+        -- Additional comment....
       SELECT COUNT(*) FROM examples;
+    QUERY
+  end
+
+  def sample_with_args
+    <<~QUERY
+      -- name: count_examples
+      SELECT COUNT(*) FROM examples where id = :id and name = :name;
     QUERY
   end
 
@@ -34,14 +39,21 @@ class YaassqlTest < Minitest::Test
     end
   end
 
-  def test_reading_body
-    assert_equal "SELECT COUNT(*) FROM examples;", r.body(sample_query)
-    assert_equal "SELECT COUNT(*) FROM examples;", r.body(sample_with_whitespace)
+  def test_reading_raw_body
+    assert_equal "SELECT COUNT(*) FROM examples;", r.raw_body(sample_query)
+    assert_equal "SELECT COUNT(*) FROM examples;", r.raw_body(sample_with_whitespace)
+  end
+
+  def test_prepping_body_with_sql_args
+    with_args = "SELECT COUNT(*) FROM examples where id = $1 and name = $2;"
+    components = r.components(sample_with_args)
+    assert_equal with_args, components[:body]
   end
 
   def test_reading_named_arguments
     assert_equal([:id, :name], r.arguments("where id = :id and name = :name"))
     assert_equal([:id, :name], r.arguments("where id = :id and name = :name;"))
     assert_equal([:id], r.arguments("where id=:id;"))
+    assert_equal([], r.arguments("select * from examples;"))
   end
 end
