@@ -1,6 +1,8 @@
 # Yaassql
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yaassql`. To experiment with that code, run `bin/console` for an interactive prompt.
+Basic SQL-templating library inspired by [https://github.com/krisajenkins/yesql](https://github.com/krisajenkins/yesql).
+
+You can read more about the rationale for a library like this in [Yesql's Readme](https://github.com/krisajenkins/yesql#rationale)
 
 ## Usage
 
@@ -105,6 +107,7 @@ bundle exec rake install
 * [ ]`where IN (...)` queries
 * [ ] Option for stdout / stdin redirection (to support `COPY FROM` / `COPY TO` queries)
 * [ ] Option for streaming queries to process results row-by-row (e.g. for large datasets)
+* [ ] Support positional `?` arguments
 
 ## License
 
