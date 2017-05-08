@@ -45,7 +45,7 @@ MyDB.new.count_examples
 
 Words with a leading `:` in query files will be interpreted as arguments to the query.
 
-```
+```sql
 -- name: get_example_by_id
 SELECT * FROM examples where id = :id limit 1;
 
@@ -55,7 +55,7 @@ SELECT * FROM examples where id =ANY(:ids);
 
 Arguments can then be provided as a symbol-keyed hash when querying the function:
 
-```
+```ruby
 db = MyDB.new
 
 db.get_example_by_id({id: 1})
