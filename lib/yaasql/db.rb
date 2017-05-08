@@ -1,4 +1,4 @@
-require "./lib/yaasql/reader"
+require "yaasql/reader"
 
 module Yaasql
   module DB
