@@ -104,7 +104,7 @@ bundle exec rake install
 * [X] Metaprogramming for defining query methods
 * [X] Define queries from a file
 * [X] Support array queries with `=ANY()`
-* [ ]`where IN (...)` queries
+* [ ] `where IN (...)` queries
 * [ ] Option for stdout / stdin redirection (to support `COPY FROM` / `COPY TO` queries)
 * [ ] Option for streaming queries to process results row-by-row (e.g. for large datasets)
 * [ ] Support positional `?` arguments
