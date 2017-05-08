@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Write db queries directly in SQL - no ORM or query-builder required. Include some conveniences around naming queries and providing arguments."
   spec.homepage      = "https://github.com/worace/yaasql"
   spec.license       = "MIT"
+  spec.required_ruby_version = '>= 1.9.2'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
