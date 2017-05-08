@@ -26,6 +26,6 @@ class UsageTest < Minitest::Test
     assert_equal [{"count" => "3"}], db.count_examples
     assert_equal [{"id" => "1", "name" => "example 1"}], db.get_example_by_id({id: 1})
     assert_equal [{"id" => "1", "name" => "example 1"},
-                  {"id" => "2", "name" => "example 2"}], db.get_examples_by_id({ids: "(1, 2)"})
+                  {"id" => "2", "name" => "example 2"}], db.get_examples_by_id({ids: [1,2]})
   end
 end

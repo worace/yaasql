@@ -5,4 +5,4 @@ SELECT COUNT(*) FROM examples;
 SELECT * FROM examples where id = :id limit 1;
 
 -- name: get_examples_by_id
-SELECT * FROM examples where id in :ids;
+SELECT * FROM examples where id =ANY(:ids);
