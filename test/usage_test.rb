@@ -7,7 +7,7 @@ DB = PG.connect(DB_URL)
 
 class MyDB
   extend Yaasql::DB
-  define_queries("./test/queries.sql", DB)
+  define_queries("./queries.sql", DB)
 end
 
 class UsageTest < Minitest::Test

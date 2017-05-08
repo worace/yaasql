@@ -1,3 +1,5 @@
+require 'yaasql/query'
+
 module Yaasql
   class Reader
     HEADER_PATTERN = /^-- name: (.*)\n/
