@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class YaassqlTest < Minitest::Test
+class YaasqlTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Yaassql::VERSION
+    refute_nil ::Yaasql::VERSION
   end
 end

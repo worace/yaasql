@@ -1,12 +1,12 @@
 require 'test_helper'
 require 'pg'
-require 'yaassql/db'
+require 'yaasql/db'
 
-DB_URL = "postgres://localhost/yaassql_test"
+DB_URL = "postgres://localhost/yaasql_test"
 DB = PG.connect(DB_URL)
 
 class MyDB
-  extend Yaassql::DB
+  extend Yaasql::DB
   define_queries("./test/queries.sql", DB)
 end
 

@@ -1,4 +1,4 @@
-# Yaassql
+# Yaasql
 
 Basic SQL-templating library inspired by [https://github.com/krisajenkins/yesql](https://github.com/krisajenkins/yesql).
 
@@ -9,7 +9,7 @@ You can read more about the rationale for a library like this in [Yesql's Readme
 ### Installing
 
 ```ruby
-gem 'yaassql'
+gem 'yaasql'
 ```
 
 ### Defining Queries
@@ -28,12 +28,12 @@ SELECT COUNT(*) FROM examples;
 ### Loading queries
 
 ```ruby
-require 'yaassql/db'
+require 'yaasql/db'
 require 'pg'
 
 class MyDB
   DB_CONN = PG.connect(DB_URL)
-  extend Yaassql::DB
+  extend Yaasql::DB
   define_queries("./queries.sql", DB_CONN)
 end
 

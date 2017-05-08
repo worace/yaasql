@@ -1,4 +1,4 @@
-module Yaassql
+module Yaasql
   class Reader
     HEADER_PATTERN = /^-- name: (.*)\n/
     def name(query)

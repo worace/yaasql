@@ -1,6 +1,6 @@
-require "./lib/yaassql/reader"
+require "./lib/yaasql/reader"
 
-module Yaassql
+module Yaasql
   module DB
     def define_queries(file_path, db_conn)
       queries = Reader.new.from_file(file_path)

@@ -1,5 +1,5 @@
 require 'test_helper'
-require "yaassql/reader"
+require "yaasql/reader"
 
 class ReaderTest < Minitest::Test
   attr_reader :r
@@ -26,7 +26,7 @@ class ReaderTest < Minitest::Test
   end
 
   def setup
-    @r = Yaassql::Reader.new
+    @r = Yaasql::Reader.new
   end
 
   def test_reading_query_name

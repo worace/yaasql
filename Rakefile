@@ -1,7 +1,7 @@
 require "bundler/gem_tasks"
 require "rake/testtask"
 
-TEST_DB = 'yaassql_test'
+TEST_DB = 'yaasql_test'
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"

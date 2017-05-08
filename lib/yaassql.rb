@@ -1,5 +1,5 @@
-require "yaassql/version"
+require "yaasql/version"
 
-module Yaassql
+module Yaasql
   # Your code goes here...
 end

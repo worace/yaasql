@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in yaassql.gemspec
+# Specify your gem's dependencies in yaasql.gemspec
 gemspec

@@ -1,6 +1,6 @@
-require "./lib/yaassql/reader"
+require "./lib/yaasql/reader"
 
-module Yaassql
+module Yaasql
   class Query
     attr_reader :name, :body, :arguments
 

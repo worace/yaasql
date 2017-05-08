@@ -1,8 +1,8 @@
 require 'test_helper'
-require 'yaassql/query'
+require 'yaasql/query'
 require 'pg'
 
-class YaassqlTest < Minitest::Test
+class YaasqlTest < Minitest::Test
   def sample
     <<~QUERY
       -- name: count_examples
@@ -11,16 +11,16 @@ class YaassqlTest < Minitest::Test
   end
 
   def test_getting_a_query
-    query = Yaassql::Query.from_string(sample)
+    query = Yaasql::Query.from_string(sample)
     assert_equal :count_examples, query.name
     assert_equal "SELECT COUNT(*) FROM examples;", query.body
     assert_equal [], query.arguments
   end
 
   def test_executing_query
-    url = "postgres://localhost/yaassql_test"
+    url = "postgres://localhost/yaasql_test"
     conn = PG.connect(url)
-    q = Yaassql::Query.from_string(sample)
+    q = Yaasql::Query.from_string(sample)
     assert_equal [{"count" => "3"}], q.execute(conn)
   end
 end

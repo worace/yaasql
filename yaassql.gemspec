@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'yaassql/version'
+require 'yaasql/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "yaassql"
-  spec.version       = Yaassql::VERSION
+  spec.name          = "yaasql"
+  spec.version       = Yaasql::VERSION
   spec.authors       = ["Horace Williams"]
   spec.email         = ["horace.d.williams@gmail.com"]
 
   spec.summary       = "Simple SQL query-templating for ruby, a la https://github.com/krisajenkins/yesql."
   spec.description   = "Write db queries directly in SQL - no ORM or query-builder required. Include some conveniences around naming queries and providing arguments."
-  spec.homepage      = "https://github.com/worace/yaassql"
+  spec.homepage      = "https://github.com/worace/yaasql"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
